@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { DropDown } from './dropdown'
-import Products from './ui/productcards'
+import Products from './ui/product-cards'
 import { PriceSort } from './priceSort'
 import Search from './search'
 import { AddProduct } from './ui/buttons'
@@ -22,7 +22,7 @@ export default function Home({
 
 
   const displayed = searchParams?.displayed || 10;
-  const sortType = searchParams.sortType;
+  const sortType = searchParams?.sortType || "ASC";
   const query = searchParams?.query || '';
   return (
     

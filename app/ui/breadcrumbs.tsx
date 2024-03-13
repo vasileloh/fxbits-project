@@ -6,6 +6,7 @@ interface Breadcrumb {
   label: string;
   href: string;
   active?: boolean;
+  id?: string
 }
 
 export default function Breadcrumbs({

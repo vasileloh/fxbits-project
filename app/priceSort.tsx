@@ -1,6 +1,6 @@
 'use client' 
 import React, { useState } from "react";
-import Products from "./ui/productcards";
+import Products from "./ui/product-cards";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import Link from 'next/link';
 
@@ -12,9 +12,9 @@ export const  PriceSort =  () => {
 
         const options = [
     
-            { label: "Low to High"},
+            { label: "ASC"},
          
-            { label: "High to Low"},
+            { label: "DESC"},
          
             
          

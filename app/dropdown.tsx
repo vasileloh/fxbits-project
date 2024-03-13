@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from "react";
-import Products from "./ui/productcards";
+import Products from "./ui/product-cards";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import Link from 'next/link';
 

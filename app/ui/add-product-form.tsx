@@ -153,7 +153,7 @@ export default function Form() {
         >
           Cancel
         </Link>
-        <Button type="submit">Create Invoice</Button>
+        <Button type="submit">Add Product</Button>
       </div>
     </form>
   );
