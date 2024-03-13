@@ -1,8 +1,9 @@
-export type Post = {
-    title: string;
-    id: number;
+export type Product = {
     
+    id: string;
+    title: string;
     price: number
     description: string;
     image: string;
 };
+
