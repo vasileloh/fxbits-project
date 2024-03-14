@@ -52,11 +52,13 @@ return (
             
         
                 <div className="flex flex-1 flex-col justify-between max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:border-gray-700" key={element.id}>
-                  
-                    <a href="#">
+                   <nav>
+                    <a href={`/details/${element.id}`}>
                         <Image className="object-fill rounded-t-lg" src={element.image} alt="" height={200} width={200} />
                         
+                        
                     </a>
+                    
                     <div className="grid p-5">
                         
                         
@@ -78,6 +80,7 @@ return (
                       
                        
                     </div>
+                    </nav>
                     <div className="flex flex-col p-5 justify-around">
                         <h6 className="inline-flex mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-600">{element.price/100} RON</h6>
                         
