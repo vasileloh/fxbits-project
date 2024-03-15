@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Products from "./ui/product-cards";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import Link from 'next/link';
+import {Select, Option} from "@material-tailwind/react"
+
 
 
 
@@ -17,9 +19,9 @@ export const  DropDown = () =>  {
 
         const options = [
     
-            { label: "10", displayed: 10},
+            { label: "10"},
          
-            { label: "20", displayed: 20},
+            { label: "20"},
          
             
          
@@ -36,7 +38,7 @@ export const  DropDown = () =>  {
               replace(`${pathName}?${param.toString()}`)
               console.log(param)'
               */
-
+              
               const handleChange = ((selectedOption: any) => {
                 const param  = new URLSearchParams(searchParams)
               
@@ -55,25 +57,26 @@ export const  DropDown = () =>  {
         
       return (
         <>
+        <div className="flex flex-row h-10 w-26 mt-4 mb-2 text-black">
         
-        <label className="inline-flex">
-      
-        
-        
-        <select className=" dark:bg-gray-800" defaultValue={10} onChange={(e) => {
-          handleChange(e.target.value)
-        }}
-           >
-            {options.map((option: {displayed: number }) => (
-
-             <option className="dark:bg-gray-800" key={option.displayed} value={option.displayed} >Products per page{option.displayed}</option>
+        <Select 
+              label="Products per Page"
+              placeholder={10} 
+              onChange={(e) => {
+                handleChange(e);
+              } }
+              className="bg-white"
+                         >
+            {options.map((option: {label: string }) => (
+              
+             <Option key={option.label} value={option.label} className="flex items-center gap-2" > {option.label}</Option>
 
             ))}
 
-        </select>    
+        </Select>    
         
-    </label>
-   
+        
+   </div>
    
     </>
       ) 

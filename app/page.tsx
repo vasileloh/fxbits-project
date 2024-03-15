@@ -10,6 +10,7 @@ import { AddProduct } from './ui/buttons'
 
 
 
+
 export default function Home({
   searchParams
 }: {
@@ -32,7 +33,7 @@ export default function Home({
         </div>
       <div className="inline-flex gap-5">
       
-     <DropDown />
+     {<DropDown />}
      <PriceSort />
      <Search placeholder="Search products" />
      </div>

@@ -39,9 +39,9 @@ return (
 </label>
         */}
        
-<div className='grid grid-cols-5' >
+<div className='grid grid-cols-5 gap-3'>
           {products?.sort((a,b) => {
-               if (sortType == "DESC") {
+               if (sortType == "Price High to Low") {
                return b.price - a.price }
                return a.price - b.price;
 })
@@ -51,10 +51,10 @@ return (
             
             
         
-                <div className="flex flex-1 flex-col justify-between max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:border-gray-700" key={element.id}>
+                <div className=" flex flex-1 flex-col justify-between max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:border-gray-700   hover:bg-gray-400" key={element.id}>
                    <nav>
                     <a href={`/details/${element.id}`}>
-                        <Image className="object-fill rounded-t-lg" src={element.image} alt="" height={200} width={200} />
+                        <Image className="mx-3 my-3 object-fill rounded-t-lg shadow-2xl "  src={element.image} alt="" height={150} width={150} />
                         
                         
                     </a>
@@ -64,18 +64,11 @@ return (
                         
                        
                             
-                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-600">
-                            <Breadcrumbs
-                         breadcrumbs={[
-                                
-                                {
-                                    label: `${element.title}`,
-                                    href: `/${element.id}/details`,
-                                    active: true,
-                                    id: `${element.id}`,
-                                },
-                         ]} />
-                         </h5>
+                            <a href={`/details/${element.id}`}>
+                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-600 hover:underline">{element.title}</h5>
+                            </a>
+                           
+                         
                         
                       
                        
