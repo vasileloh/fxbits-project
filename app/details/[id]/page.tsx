@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Products from '../../ui/product-cards'
-import { DropDown } from '../../dropdown'
+import { DropDown } from '../../ui/dropdown'
 import { fetchProductById } from '@/app/lib/data'
 import ProductDetails from '@/app/ui/product-details'
 

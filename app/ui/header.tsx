@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { DropDown } from "../dropdown";
+import { DropDown } from "./dropdown";
 
 
 export default function Header() {

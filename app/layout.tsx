@@ -1,8 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { DropDown } from './dropdown'
-import Search from './search'
+import { DropDown } from './ui/dropdown'
+import Search from './ui/search'
 import Header from './ui/header'
 import Head from 'next/head'
 
@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-white` }>{children}
+      <body className={`${inter.className} bg-black` }>{children}
        
          </body>
     </html>

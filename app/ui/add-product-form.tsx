@@ -1,5 +1,5 @@
 'use client'
-import { Product } from '@/app/lib/definitions';
+
 import Link from 'next/link';
  import {
   CheckIcon,
@@ -8,7 +8,7 @@ import Link from 'next/link';
   UserCircleIcon,
   CurrencyEuroIcon,
 } from '@heroicons/react/24/outline'; 
-import { Button } from '@/app/button';
+import { Button } from '@/app/ui/button';
 import { addProduct } from '@/app/lib/actions';
 
 
@@ -36,12 +36,7 @@ export default function Form() {
               {<CurrencyEuroIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />}
             </div>
             <div id="title-error" aria-live='polite' aria-atomic='true'>
-            {/*state.errors?.title &&
-            state.errors.title.map((error: string) => (
-              <p className='mt-2 text-sm text-red-500' key={error}>
-                {error}
-              </p>
-            )) */}
+            
           </div>
           </div>
         </div>
@@ -66,12 +61,7 @@ export default function Form() {
               {<CurrencyEuroIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />}
             </div>
             <div id="price-error" aria-live='polite' aria-atomic='true'>
-            {/* state.errors?.price &&
-            state.errors.price.map((error: string) => (
-              <p className='mt-2 text-sm text-red-500' key={error}>
-                {error}
-              </p>
-            )) */}
+           
           </div>
           </div>
         </div>
@@ -99,12 +89,7 @@ export default function Form() {
            { <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" /> }
           </div>
           <div id="description-error" aria-live='polite' aria-atomic='true'>
-            {/* state.errors?.description &&
-            state.errors.description.map((error: string) => (
-              <p className='mt-2 text-sm text-red-500' key={error}>
-                {error}
-              </p>
-            )) */}
+            
           </div>
         </div>
 
@@ -130,20 +115,11 @@ export default function Form() {
            { <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" /> }
           </div>
           <div id="image-error" aria-live='polite' aria-atomic='true'>
-            {/* state.errors?.image &&
-            state.errors.image.map((error: string) => (
-              <p className='mt-2 text-sm text-red-500' key={error}>
-                {error}
-              </p>
-            ))*/ }
+            
           </div>
         </div>
         
-        {/* <div id="missing-fields" aria-live='polite' aria-atomic='true'>
-        <p className='mt-2 text-sm text-red-500' key={state.message}>
-                {state.message}
-              </p>
-          </div> */}
+        
       </div>
       
       <div className="mt-6 flex justify-end gap-4">

@@ -1,23 +1,28 @@
+
+
 import Image from 'next/image'
 import Link from 'next/link'
-import { DropDown } from './dropdown'
+import { DropDown } from './ui/dropdown'
 import Products from './ui/product-cards'
-import { PriceSort } from './priceSort'
-import Search from './search'
+import { PriceSort } from './ui/priceSort'
+import Search from './ui/search'
 import { AddProduct } from './ui/buttons'
+import { fetchProductPages } from './lib/data'
+import Pagination from './ui/pagination'
 
 
 
 
 
 
-export default function Home({
+export default async function Home({
   searchParams
 }: {
   searchParams: {
     displayed: number;
     sortType: string;
     query: string;
+    page: number
   }
 }) {
 
@@ -25,6 +30,8 @@ export default function Home({
   const displayed = searchParams?.displayed || 10;
   const sortType = searchParams?.sortType || "ASC";
   const query = searchParams?.query || '';
+  const currentPage = Number(searchParams?.page) || 1;
+  const totalPages = await fetchProductPages(query, displayed);
   return (
     
     <main>
@@ -37,7 +44,8 @@ export default function Home({
      <PriceSort />
      <Search placeholder="Search products" />
      </div>
-     <Products displayed={displayed} sortType={sortType} query={query} />
+     <Products displayed={displayed} sortType={sortType} query={query} currentPage={currentPage} />
+      <Pagination totalPages={totalPages} />
       <AddProduct />
      
 

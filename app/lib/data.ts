@@ -18,10 +18,11 @@ import { unstable_noStore } from 'next/cache';
 
 export async function fetchProducts(
   displayed: number,
-  sortType: string,
-  query: string
+  query: string,
+  currentPage: number,
   ) {
     const itemsPerPage = displayed;
+    const offset = (currentPage - 1) * itemsPerPage;
     
   unstable_noStore();
   try {
@@ -31,7 +32,7 @@ export async function fetchProducts(
     WHERE 
       products.title ILIKE ${`%${query}%`}
     ORDER BY products.price ASC
-    LIMIT ${itemsPerPage}`;
+    LIMIT ${itemsPerPage} OFFSET ${offset}`;
 
     const products = data.rows.map((product) => ({
       ...product
@@ -66,6 +67,25 @@ export async function fetchProductById(id: string) {
   }
 }
 
+export async function fetchProductPages (query: string, displayed: number) {
+  const itemsPerPage = displayed;
+  unstable_noStore()
+  try {
+    const count = await sql`
+    SELECT COUNT(*)
+    FROM products
+    WHERE 
+      products.title ILIKE ${`%${query}%`}
+  
+  
+    `;
+    const totalPages = Math.ceil(Number(count.rows[0].count) / itemsPerPage);
+    return totalPages;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch total number of products.');
+  }
+}
 
  
 
