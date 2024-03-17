@@ -37,7 +37,7 @@ export default function Form() {
           </div>
         </div>
 
-        {/* Pret */}
+        {/* Price */}
         <div className="mb-4">
           <label htmlFor="price" className="mb-2 block text-sm font-medium">
             Enter product price
