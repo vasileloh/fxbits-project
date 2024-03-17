@@ -1,5 +1,8 @@
 'use client'
+import React, { useState } from "react";
+import Products from "./product-cards";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
+
 import {Select, Option} from "@material-tailwind/react"
 
 

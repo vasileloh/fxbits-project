@@ -9,14 +9,11 @@ const nextConfig = {
             port: "",
             pathname: "/img/**",
           },
-          {
-            protocol: "https",
-            hostname: "uxwing.com",
-            port: "",
-            pathname: "/wp-content/themes/uxwing/download/web-app-development/**"
-
-          }
+          
         ],
+    },
+    experimental: {
+      missingSuspenseWithCSRBailout: false
     }
 }
 
