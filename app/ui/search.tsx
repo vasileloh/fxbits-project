@@ -30,7 +30,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
   return (
     <>
      
-     <div className=' h-10 w-[213px] text-gray-500 py-3'>
+     <div className=' h-10 w-[213px] text-gray-500'>
     <Input
     
      label={placeholder}

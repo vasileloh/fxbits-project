@@ -15,7 +15,7 @@ export default function Header() {
                         </a>
                     </div>
 
-                    <div className="flex">
+                    <div className="flex my-3">
                         <Search placeholder="Search Products" />
                     </div>
 
