@@ -19,7 +19,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: white;
-    padding: 2rem;
+    padding-top: 2rem;
 }
 .productBox {
   border: 1px solid;

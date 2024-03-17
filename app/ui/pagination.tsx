@@ -1,13 +1,11 @@
 'use client'
 
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
-import { all } from 'axios';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 export default function Pagination({ totalPages }: { totalPages: number }) {
-    // NOTE: comment in this code when you get to this point in the course
   
     const pathname = usePathname();
     const searchParams = useSearchParams();
@@ -26,10 +24,10 @@ for (let i = 1; i <= totalPages; i++) {
      
 
     
-    console.log(allPages)
+   
     return (
       <>
-        { <div className="inline-flex">
+        { <div className="inline-flex mt-4">
         <PaginationArrow
           direction="left"
           href={createPageURL(currentPage - 1)}
@@ -81,13 +79,14 @@ for (let i = 1; i <= totalPages; i++) {
     isActive: boolean;
   }) {
     const className = clsx(
-      'flex h-10 w-10 items-center justify-center text-sm border text-red-900',
+      'flex h-10 w-10 items-center justify-center text-sm text-black',
       {
         'rounded-l-md': position === 'first' || position === 'single',
         'rounded-r-md': position === 'last' || position === 'single',
-       'z-10 bg-blue-600 border-blue-600 text-white': isActive,
-        'hover:bg-gray-100': !isActive && position !== 'middle',
+        'z-10 bg-blue-600 border-blue-600 text-white': isActive,
+        'bg-gray-200 hover:bg-blue-100': !isActive,
         'text-gray-300': position === 'middle',
+        
       },
     );
   
@@ -110,9 +109,9 @@ for (let i = 1; i <= totalPages; i++) {
     isDisabled?: boolean;
   }) {
     const className = clsx(
-      'flex h-10 w-10 items-center justify-center rounded-md border text-green-900',
+      'flex h-10 w-10 items-center justify-center rounded-md border text-black',
       {
-        'pointer-events-none text-gray-300': isDisabled,
+        'pointer-events-none text-gray-700': isDisabled,
         'hover:bg-gray-100': !isDisabled,
         'mr-2 md:mr-4': direction === 'left',
         'ml-2 md:ml-4': direction === 'right',

@@ -4,10 +4,13 @@ import Products from '../../ui/product-cards'
 import { DropDown } from '../../ui/dropdown'
 import { fetchProductById } from '@/app/lib/data'
 import ProductDetails from '@/app/ui/product-details'
+import ImageWithFallBack from '@/app/imageWithFallBack'
+import { CurrencyEuroIcon } from '@heroicons/react/24/outline'
+import { ThemeProvider } from '@material-tailwind/react'
 
 
 
-export default function Page  ({
+export default async function Page  ({
   params
 }: {params: {
   id:string
@@ -15,17 +18,14 @@ export default function Page  ({
   
   
   const id = params.id;
-  const product = fetchProductById(id);
+  const product = await fetchProductById(id);
  
   return (
     
     <main>
       
-    
-     <ProductDetails id={id} />
-   
-     
-     
+       <ProductDetails id={id} />
+       
     </main>
   )
 }

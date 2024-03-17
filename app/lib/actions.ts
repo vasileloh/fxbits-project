@@ -15,16 +15,22 @@ import { redirect } from "next/navigation";
   
 const FormSchema = z.object({
     id: z.string(),
-    title: z.string(),
-    price: z.coerce.number(),
-    description: z.string(),
+    title: z.string({
+      invalid_type_error: 'Please enter a product title.'
+    }),
+    price: z.coerce
+    .number()
+    .gt(0, { message: 'Please enter an amount greater than 0.'}),
+    description: z.string( {
+      invalid_type_error: 'Please insert a product description'
+    }),
     image: z.string(),
 });
 const AddProduct = FormSchema.omit({id: true})
 
 
 
-export async function addProduct(formData: FormData) {
+export async function addProduct( formData: FormData) {
   const {title, price, description, image} = AddProduct.parse({
     title: formData.get('title'),
     price: formData.get('price'),
@@ -33,7 +39,7 @@ export async function addProduct(formData: FormData) {
     
     
     });
- 
+    
   
  try {
   await sql`

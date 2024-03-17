@@ -1,14 +1,10 @@
-
-
-import Image from 'next/image'
-import Link from 'next/link'
 import { DropDown } from './ui/dropdown'
 import Products from './ui/product-cards'
 import { PriceSort } from './ui/priceSort'
-import Search from './ui/search'
 import { AddProduct } from './ui/buttons'
 import { fetchProductPages } from './lib/data'
 import Pagination from './ui/pagination'
+
 
 
 
@@ -35,18 +31,23 @@ export default async function Home({
   return (
     
     <main>
-      <div className='header'>
-        <Image src="/header.png" alt="1" width={200} height={20}/>
-        </div>
-      <div className="inline-flex gap-5">
       
-     {<DropDown />}
-     <PriceSort />
-     <Search placeholder="Search products" />
+     <div className='pt-16'>
+      
+          <ul className='flex justify-center gap-32 '>
+              <DropDown />
+              <PriceSort />
+              <AddProduct />
+            </ul>
+            
+          <div className='flex justify-center'>
+              <Products displayed={displayed} sortType={sortType} query={query} currentPage={currentPage} />
+          </div>
+
+          <div className='flex justify-center'>
+              <Pagination totalPages={totalPages} />
+          </div>
      </div>
-     <Products displayed={displayed} sortType={sortType} query={query} currentPage={currentPage} />
-      <Pagination totalPages={totalPages} />
-      <AddProduct />
      
 
      

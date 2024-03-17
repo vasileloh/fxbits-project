@@ -1,10 +1,9 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { DropDown } from './ui/dropdown'
-import Search from './ui/search'
 import Header from './ui/header'
-import Head from 'next/head'
+
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,10 +18,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-black` }>{children}
-       
+    <html lang="eng">  
+      <body className={`${inter.className} top-0 antialiased bg-white p-0`  }>       
+       <Header />
+        {children}
+      
          </body>
     </html>
+    
   )
 }

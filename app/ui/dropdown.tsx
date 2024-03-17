@@ -1,8 +1,5 @@
 'use client'
-import React, { useState } from "react";
-import Products from "./product-cards";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
-import Link from 'next/link';
 import {Select, Option} from "@material-tailwind/react"
 
 
@@ -19,7 +16,7 @@ export const  DropDown = () =>  {
 
         const options = [
     
-            { label: "5"},
+            { label: "10"},
          
             { label: "20"},
          
@@ -28,24 +25,14 @@ export const  DropDown = () =>  {
           ];
     
     
-          //const [value, setValue] = useState(10);
-
-          /*
-          const handleChange = (event: any) => {
-              const param  = new URLSearchParams(searchParams)
-              param.set('value', value.toString())
-              setValue(event.target.value);
-              replace(`${pathName}?${param.toString()}`)
-              console.log(param)'
-              */
-              
+          
               const handleChange = ((selectedOption: any) => {
                 const param  = new URLSearchParams(searchParams)
               
-              
-              param.set('displayed', selectedOption)
+              param.set('page', '1');
+              param.set('displayed', selectedOption);
               replace(`${pathName}?${param.toString()}`)
-              
+              console.log(selectedOption)
               })
               
               
@@ -57,7 +44,7 @@ export const  DropDown = () =>  {
         
       return (
         <>
-        <div className="flex flex-row h-10 w-26 mt-4 mb-2 text-black">
+        <div className=" flex h-10 w-[214px] pt-4 pb-2">
         
         <Select 
               label="Products per Page"
@@ -65,7 +52,7 @@ export const  DropDown = () =>  {
               onChange={(e) => {
                 handleChange(e);
               } }
-              className="bg-white"
+              className=" bg-white"
                          >
             {options.map((option: {label: string }) => (
               
