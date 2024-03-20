@@ -1,7 +1,7 @@
 import { DropDown } from './ui/dropdown'
 import Products from './ui/product-cards'
 import { PriceSort } from './ui/priceSort'
-import { AddProduct } from './ui/buttons'
+import { AddProduct, EditProduct } from './ui/buttons'
 import { fetchProductPages } from './lib/data'
 import Pagination from './ui/pagination'
 
@@ -38,6 +38,7 @@ export default async function Home({
               <DropDown />
               <PriceSort />
               <AddProduct />
+              <EditProduct />
             </ul>
             
           <div className='flex justify-center'>

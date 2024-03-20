@@ -19,9 +19,7 @@ export default async function Products({
 }) {
     const products = await fetchProducts(displayed, query, currentPage);
     
-   const err = (event: any) => {
-        return true;
-   }
+   
     
 return (
 <>   

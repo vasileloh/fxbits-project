@@ -5,16 +5,26 @@ import Link from 'next/link';
   LinkIcon,
   CpuChipIcon,
   DocumentTextIcon,
+  UserCircleIcon,
 } from '@heroicons/react/24/outline'; 
 import { Button } from '@/app/button';
-import { addProduct } from '@/app/lib/actions';
+import { editProduct } from '@/app/lib/actions';
+import { Product, ProductField } from '../lib/definitions';
+import { fetchProductsNoFilter } from '../lib/data';
 
 
-export default function AddForm() {
+export default function EditForm({
+    product,
+    
+}: {product: Product
+    }) {
+
+  const editProductWithId  = editProduct.bind(null, product.id)
   
   return (
-    <form action={addProduct}>
-      <div className="rounded-md bg-gray-500 p-4 md:p-6">
+    <form action={editProductWithId}>
+      <div className="rounded-md bg-gray-500 p-4 md:p-6 text-black">
+        
         {/* Title*/}
         <div className="mb-4">
           <label htmlFor="title" className="mb-2 block text-sm font-medium">
@@ -28,7 +38,7 @@ export default function AddForm() {
                 type="string"
                 placeholder="Enter title"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 text-black placeholder:text-gray-500"
-                required
+                defaultValue={product.title}
                 
               />
               {<CpuChipIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />}
@@ -49,7 +59,7 @@ export default function AddForm() {
                 type="string"
                 placeholder="Enter category"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 text-black placeholder:text-gray-500"
-                required
+                defaultValue={product.category}
                 
               />
               {<CpuChipIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />}
@@ -73,7 +83,7 @@ export default function AddForm() {
                 step="0.01"
                 placeholder="Enter price"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 text-black placeholder:text-gray-500"
-                required
+                defaultValue={product.price}
                 
               />
               {<CurrencyEuroIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />}
@@ -95,7 +105,7 @@ export default function AddForm() {
                 type="string"
                 placeholder="Enter product description"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 text-black placeholder:text-gray-500"
-               required
+                defaultValue={product.description}
                 
               />
               
@@ -119,7 +129,7 @@ export default function AddForm() {
                 type="text"
                 placeholder="Enter URL"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 text-black placeholder:text-gray-500"
-                required
+                defaultValue={product.image}
                 
               />
               
@@ -141,7 +151,7 @@ export default function AddForm() {
         >
           Cancel
         </Link>
-        <Button type="submit">Add Product</Button>
+        <Button type="submit">Edit Product</Button>
       </div>
     </form>
   );

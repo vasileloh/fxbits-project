@@ -1,5 +1,5 @@
 
-import {  Product }  from './definitions'
+import {  Product, ProductField }  from './definitions'
 import { sql } from '@vercel/postgres';
 import { unstable_noStore } from 'next/cache';
 
@@ -49,6 +49,8 @@ export async function fetchProducts(
 
 export async function fetchProductById(id: string) {
   unstable_noStore();
+
+  
   try {
     const data = await sql<Product>`
     SELECT products.id, products.title, products.price, products.description, products.image
@@ -86,6 +88,32 @@ export async function fetchProductPages (query: string, displayed: number) {
     throw new Error('Failed to fetch total number of products.');
   }
 }
+
+
+export async function fetchProductsNoFilter(
+  
+  ) {
+    
+    
+  unstable_noStore();
+  try {
+    const data = await sql<ProductField>`
+    SELECT id, title
+    FROM products
+    ORDER BY title ASC`;
+
+    const products = data.rows.map((product) => ({
+      ...product
+    }
+    ));
+    
+    return products;
+  } catch (error) {
+    console.error("Database error:", error);
+    throw new Error("Failed to fetch all products.");
+  }
+
+};
 
  
 

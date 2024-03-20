@@ -11,7 +11,7 @@ export default async function Page  ({
   
   
   const id = params.id;
-  const product = await fetchProductById(id);
+  
  
   return (
     
