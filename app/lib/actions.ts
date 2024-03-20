@@ -66,12 +66,12 @@ const EditProduct = FormSchema.omit({id: true})
 
 
 export async function editProduct(id: string, formData: FormData) {
-  const { title,category,  price, description, image } = EditProduct.parse({
+  const { title, category, price, description, image } = EditProduct.parse({
     title: formData.get('title'),
     category: formData.get('category'),
     price: formData.get('price'),
     description: formData.get('description'),
-    image: formData.get('image'),
+    image: formData.get('image')
     
   });
  
@@ -79,7 +79,7 @@ export async function editProduct(id: string, formData: FormData) {
   try {
   await sql`
     UPDATE products
-    SET title = ${title}, price = ${price}, description = ${description}, image = ${image},  category = ${category}
+    SET title = ${title}, category = ${category}, price = ${price}, description = ${description}, image = ${image} 
     WHERE id = ${id}
   `;
   } catch (error) {

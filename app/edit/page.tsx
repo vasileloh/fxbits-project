@@ -21,7 +21,7 @@ export default async function Page({
         <main className='pt-16'>
              
               <SelectProduct products = {products} />
-             {id ? <SelectedProduct id={id} /> : <></> }
+             {id && <SelectedProduct id={id} /> }
               
              </main>
     );
