@@ -66,12 +66,13 @@ const EditProduct = FormSchema.omit({id: true})
 
 
 export async function editProduct(id: string, formData: FormData) {
-  const { title,  price, description, image,category } = EditProduct.parse({
+  const { title,category,  price, description, image } = EditProduct.parse({
     title: formData.get('title'),
+    category: formData.get('category'),
     price: formData.get('price'),
     description: formData.get('description'),
     image: formData.get('image'),
-    category: formData.get('category')
+    
   });
  
  

@@ -48,7 +48,7 @@ export default function EditForm({
         </div>
         {/* Category*/}
         <div className="mb-4">
-          <label htmlFor="title" className="mb-2 block text-sm font-medium">
+          <label htmlFor="category" className="mb-2 block text-sm font-medium">
             Enter product category
           </label>
           <div className="relative mt-2 rounded-md">
