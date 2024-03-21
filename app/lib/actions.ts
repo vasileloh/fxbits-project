@@ -75,11 +75,11 @@ export async function editProduct(id: string, formData: FormData) {
     
   });
  
- 
+   const priceInCents = price * 100;
   try {
   await sql`
     UPDATE products
-    SET title = ${title}, category = ${category}, price = ${price}, description = ${description}, image = ${image} 
+    SET title = ${title}, category = ${category}, price = ${priceInCents}, description = ${description}, image = ${image} 
     WHERE id = ${id}
   `;
   } catch (error) {

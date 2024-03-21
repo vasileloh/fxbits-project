@@ -53,7 +53,7 @@ export async function fetchProductById(id: string) {
   
   try {
     const data = await sql<Product>`
-    SELECT products.id, products.title, products.price, products.description, products.image
+    SELECT products.id, products.category, products.title, products.price, products.description, products.image
     FROM products
     WHERE products.id = ${id};
     `;

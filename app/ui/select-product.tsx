@@ -14,16 +14,7 @@ export default function  SelectProduct  ( { products }: {
   const searchParams = useSearchParams();
   
 
-   // const [option, setOption] =  useState('87f9069b-0c85-4913-a1f0-01b7bf4155d6');
-    //let id: string = ''
-    //const handleChange = (selectedOption: any) => {
-      //const option = selectedOption;
-       //id = option.toString()
-      
-    //}
-     //id = option.toString();
-
-    /////////////////////////////
+  
 
 
     const param  = new URLSearchParams(searchParams)
@@ -33,10 +24,9 @@ export default function  SelectProduct  ( { products }: {
     
     param.set('id', selectedOption)
     replace(`${pathName}?${param.toString()}`)
-    //console.log(selectedOption)
+   
    }) 
-    //const id = option.toString()
-    //const product = await fetchProductById(id);
+   
   console.log('param=' + param.toString())
   return (
     <>
@@ -44,7 +34,7 @@ export default function  SelectProduct  ( { products }: {
          {/* Product */}
          <div className="mb-4">
           <label htmlFor="customer" className="mb-2 block text-sm font-medium">
-            Choose product
+            Select a product
           </label>
           <div className="relative">
             <select
@@ -60,7 +50,7 @@ export default function  SelectProduct  ( { products }: {
               }
               
             >
-              <option value="" disabled>
+              <option value="">
                 Select a product
               </option>
               {products.map((products) => (

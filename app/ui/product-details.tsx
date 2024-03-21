@@ -1,19 +1,20 @@
-import React from 'react'
 import { fetchProductById } from '../lib/data'
 import { CurrencyEuroIcon, ShoppingCartIcon } from '@heroicons/react/24/outline';
 import ImageWithFallBack from '../imageWithFallBack';
 import { Button } from '../button';
-
+import Accordion, { AccordionBody, AccordionHeader } from '@material-tailwind/react/components/Accordion';
+import type { AccordionProps } from "@material-tailwind/react";
+import { DefaultAccordion } from './accordion';
 
 
 export default async function ProductDetails({id}: {
     id: string
 })  {
     const product = await fetchProductById(id);
-
-   
+    
     
   return (
+    <>
     <main className='flex w-[900px] justify-center mt-20 text-black'>
     
       <div className='w-full flex flex-col md:flex-row md:justify-between mdL:space-x-10 items-center'>
@@ -29,12 +30,20 @@ export default async function ProductDetails({id}: {
        <Button ><ShoppingCartIcon className='h-8 w-8'/>Add to Cart</Button>
        </div>
        </div>
+         
+
+
 
        
        </div>
+
+        {/* accordion test */}
+
+        
     
     </main>
-    
+    <DefaultAccordion />
+    </>
   )
 }
 
