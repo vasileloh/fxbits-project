@@ -59,7 +59,7 @@ export function AccordionSearch() {
                 <MagnifyingGlassIcon />
             </AccordionHeader>
             <AccordionBody>
-                <Search placeholder="Search products" />
+                {/*<Search placeholder="Search products" /> */}
             </AccordionBody>
         </Accordion>
 

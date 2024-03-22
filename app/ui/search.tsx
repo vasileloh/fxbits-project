@@ -4,6 +4,7 @@ import { MagnifyingGlassIcon } from '@heroicons/react/16/solid';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 import { Input } from '@material-tailwind/react';
+import type { InputProps } from "@material-tailwind/react";
 
 export default function Search({ placeholder }: { placeholder: string }) {
 
@@ -30,16 +31,20 @@ export default function Search({ placeholder }: { placeholder: string }) {
   return (
     <>
      
-     <div className=' h-10 w-[213px] text-gray-500'>
+     <div className=' h-10  text-gray-500'>
     <Input
+    label={'ceva'}
     
-     label={placeholder}
+     placeholder={placeholder}
+     labelProps={{className: "hidden"}}
+     
      onChange={(e) => {
       handleSearch(e.target.value);
       } }
     defaultValue={searchParams.get('query')?.toString()} crossOrigin={undefined}
-    className='bg-white'
+    className="absolute right-0  w-[40px] transition ease-in-out focus:w-full"
     icon={<MagnifyingGlassIcon/>}
+    
     />
     </div> 
   
