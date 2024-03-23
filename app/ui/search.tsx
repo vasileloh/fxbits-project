@@ -31,21 +31,22 @@ export default function Search({ placeholder }: { placeholder: string }) {
   return (
     <>
      
-     <div className=' h-10  text-gray-500'>
-    <Input
-    label={'ceva'}
+     <div className='h-10 flex text-black'>
+    <input
     
-     placeholder={placeholder}
-     labelProps={{className: "hidden"}}
+    
+     //placeholder={placeholder}
+     //labelProps={{className: "hidden"}}
      
      onChange={(e) => {
       handleSearch(e.target.value);
       } }
-    defaultValue={searchParams.get('query')?.toString()} crossOrigin={undefined}
-    className="absolute right-0  w-[40px] transition ease-in-out focus:w-full"
-    icon={<MagnifyingGlassIcon/>}
+    defaultValue={searchParams.get('query')?.toString()} //crossOrigin={undefined}
+    className="absolute right-0 h-10 bg-transparent w-[40px] border-[.5px] border-gray-400 rounded-md transition-all  duration-300 focus:w-[200px] "
+    //icon={<MagnifyingGlassIcon/>}
     
-    />
+    /> 
+    <MagnifyingGlassIcon height={40} width={40} color='gray' />
     </div> 
   
     </>
