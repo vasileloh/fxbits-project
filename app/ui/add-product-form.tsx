@@ -12,7 +12,7 @@ import { useFormState } from 'react-dom';
 
 
 export default function AddForm() {
-  const initialState = { message: null, errors: {} };
+  const initialState = { errors: {}, message: null };
   const [state, dispatch] = useFormState(addProduct, initialState);
   console.log(state.errors?.title);
   return (

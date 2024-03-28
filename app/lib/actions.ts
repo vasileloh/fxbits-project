@@ -54,7 +54,7 @@ export async function addProduct(prevState: State, formData: FormData) {
         price: formData.get('price'),
         description: formData.get('description'),
         image: formData.get('image'),
-        category: formData.get('category')
+        category: formData.get('categor')
         
         
       });
