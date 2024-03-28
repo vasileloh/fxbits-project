@@ -5,7 +5,7 @@ import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 
 export default function Header() {
     return (
-        <div className='z-50 fixed top-0 grid grid-cols-3 w-full h-16 justify-between border-b-[.5px] border-black '>
+        <div className='z-50 bg-white fixed top-0 grid grid-cols-3 w-full h-16 justify-between border-b-[.5px] border-black '>
              
              
              

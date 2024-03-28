@@ -49,24 +49,24 @@ const AddProduct = FormSchema.omit({id: true})
 
 
 export async function addProduct(formData: FormData) {
-      const validatedFields = AddProduct.safeParse({
+      const {title, price, description, image, category} = AddProduct.parse({
         title: formData.get('title'),
         price: formData.get('price'),
         description: formData.get('description'),
         image: formData.get('image'),
-        category: formData.get('categor')
+        category: formData.get('category')
         
         
       });
     
-    if (!validatedFields.success) {
+   /* if (!validatedFields.success) {
       return {
           errors: validatedFields.error.flatten().fieldErrors,
           message: 'Missing Fields. Failed to Create dfgd',
       };
-    }
+    } */
 
-  const {title, price, description, image, category} = validatedFields.data;
+ // const  = validatedFields.data;
       try {
         await sql`
         INSERT INTO products (title, price, description, image, category)
