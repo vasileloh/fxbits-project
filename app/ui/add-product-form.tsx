@@ -60,12 +60,19 @@ export default function AddForm() {
                 type="string"
                 placeholder="Enter category"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 text-black placeholder:text-gray-500"
-                required
+                aria-describedby="category-error"
                 
               />
               {<CpuChipIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />}
             </div>
-           
+            <div id="category-error" aria-live="polite" aria-atomic="true">
+            {state.errors?.category && 
+            state.errors.category.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key="error">
+                {error}
+              </p>
+            ))}
+          </div>
           </div>
         </div>
 
@@ -84,12 +91,19 @@ export default function AddForm() {
                 step="0.01"
                 placeholder="Enter price"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 text-black placeholder:text-gray-500"
-                required
+                aria-describedby="price-error"
                 
               />
               {<CurrencyEuroIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />}
             </div>
-            
+            <div id="price-error" aria-live="polite" aria-atomic="true">
+            {state.errors?.price && 
+            state.errors.price.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key="error">
+                {error}
+              </p>
+            ))}
+          </div>
           </div>
         </div>
 
@@ -106,7 +120,7 @@ export default function AddForm() {
                 type="string"
                 placeholder="Enter product description"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 text-black placeholder:text-gray-500"
-               required
+               aria-describedby="description-error"
                 
               />
               
@@ -115,7 +129,14 @@ export default function AddForm() {
             
            { <DocumentTextIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" /> }
           </div>
-         
+          <div id="description-error" aria-live="polite" aria-atomic="true">
+            {state.errors?.description && 
+            state.errors.description.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key="error">
+                {error}
+              </p>
+            ))}
+          </div>
         </div>
 
         {/* Image */}
@@ -130,7 +151,7 @@ export default function AddForm() {
                 type="text"
                 placeholder="Enter URL"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 text-black placeholder:text-gray-500"
-                required
+                aria-describedby="image-error"
                 
               />
               
@@ -139,7 +160,14 @@ export default function AddForm() {
             
            { <LinkIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" /> }
           </div>
-          
+          <div id="image-error" aria-live="polite" aria-atomic="true">
+            {state.errors?.image && 
+            state.errors.image.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key="error">
+                {error}
+              </p>
+            ))}
+          </div>
         </div>
         
         

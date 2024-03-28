@@ -13,7 +13,7 @@ import { Url } from 'next/dist/shared/lib/router/router';
 
 
 
-  
+  const regex = new RegExp("^\/")
 const FormSchema = z.object({
     id: z.string(),
     title: z.string({
@@ -24,13 +24,12 @@ const FormSchema = z.object({
     .gt(0, { message: 'Please enter an amount greater than 0.'}),
     description: z.string( {
       invalid_type_error: 'Please insert a product description'
-    }),
-    image: z.string({
-      invalid_type_error: 'Please insert a product image URL'
-    }).url(),
+    }).min(1),
+    image: z.string().regex(regex, 
+      { message: 'Please insert a product image URL'}),
     category: z.string({
       invalid_type_error: 'Please insert a product category'
-    })
+    }).min(3)
 
 });
 
@@ -39,7 +38,7 @@ export type State = {
     title?: string[];
     price?: string[];
     description?: string[];
-    image?: Url[];
+    image?: string[];
     category?: string[];
   };
   message?: string | null;

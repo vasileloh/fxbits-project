@@ -4,7 +4,7 @@ import { PriceSort } from './ui/priceSort'
 import { AddProduct, EditProduct } from './ui/buttons'
 import { fetchProductPages } from './lib/data'
 import Pagination from './ui/pagination'
-import DropDown from './ui/Dropdown'
+import DropDown from './ui/dropdown'
 
 
 
