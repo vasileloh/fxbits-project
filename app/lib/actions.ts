@@ -49,34 +49,34 @@ const AddProduct = FormSchema.omit({id: true})
 
 
 export async function addProduct(prevState: State, formData: FormData) {
-  const validatedFields = AddProduct.safeParse({
-    title: formData.get('title'),
-    price: formData.get('price'),
-    description: formData.get('description'),
-    image: formData.get('image'),
-    category: formData.get('category')
-    
-    
-    });
+      const validatedFields = AddProduct.safeParse({
+        title: formData.get('title'),
+        price: formData.get('price'),
+        description: formData.get('description'),
+        image: formData.get('image'),
+        category: formData.get('category')
+        
+        
+      });
     
     if (!validatedFields.success) {
       return {
-        errors: validatedFields.error.flatten().fieldErrors,
-        message: 'Missing Fields. Failed to Add Product.',
+          errors: validatedFields.error.flatten().fieldErrors,
+          message: 'Missing Fields. Failed to Create dfgd',
       };
     }
 
-    const {title, price, description, image, category} = validatedFields.data;
- try {
-  await sql`
-   INSERT INTO products (title, price, description, image, category)
-   VALUES (${title}, ${price}, ${description}, ${image}, ${category})
-   `;
- } catch (error) {
-    return {
-        message: 'Database Error'
-    };
- }
+  const {title, price, description, image, category} = validatedFields.data;
+      try {
+        await sql`
+        INSERT INTO products (title, price, description, image, category)
+        VALUES (${title}, ${price}, ${description}, ${image}, ${category})
+        `;
+      } catch (error) {
+          return {
+              message: 'Database Error'
+          };
+      }
    revalidatePath('/#');
    redirect('/#')
 }
