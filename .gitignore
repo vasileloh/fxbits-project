@@ -2,8 +2,11 @@
 
 # dependencies
 /node_modules
+!node_modules/@types/react-dom
 /.pnp
 .pnp.js
+
+
 
 # testing
 /coverage
