@@ -14,6 +14,7 @@ export default async function Page({
    
   const id = searchParams?.id;
   const products = await fetchProductsNoFilter();
+  const product = await fetchProductById(id);
   console.log(id)
     
    
@@ -21,7 +22,7 @@ export default async function Page({
         <main className='pt-16'>
              
               <SelectProduct products = {products} />
-             {id && <SelectedProduct id={id} /> }
+             {id && <EditForm product={product} /> }
               
              </main>
     );

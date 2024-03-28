@@ -1,7 +1,7 @@
 import { fetchProductById } from '../lib/data'
 import { CurrencyEuroIcon, ShoppingCartIcon } from '@heroicons/react/24/outline';
-import ImageWithFallBack from '../imageWithFallBack';
-import { Button } from '../button';
+import ImageWithFallBack from '../_components/imageWithFallBack';
+import { Button } from '../_components/button';
 import Accordion, { AccordionBody, AccordionHeader } from '@material-tailwind/react/components/Accordion';
 import type { AccordionProps } from "@material-tailwind/react";
 import { DefaultAccordion } from './accordion';

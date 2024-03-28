@@ -9,7 +9,7 @@ import {Select, Option} from "@material-tailwind/react"
 
 
 
-export const  DropDown = () =>  {
+export default function  DropDown  ()   {
     
     const pathName = usePathname();
     const { replace } = useRouter();

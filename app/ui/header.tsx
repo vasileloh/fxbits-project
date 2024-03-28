@@ -1,4 +1,4 @@
-import { AccordionSearch } from "./accordion";
+
 import Search from "./search";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 

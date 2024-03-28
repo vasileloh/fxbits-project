@@ -32,12 +32,24 @@ const FormSchema = z.object({
     })
 
 });
+
+export type State = {
+  errors?: {
+    title?: string[];
+    price?: string[];
+    description?: string[];
+    image?: string[];
+    category?: string[];
+  };
+  message?: string | null;
+};
+
 const AddProduct = FormSchema.omit({id: true})
 
 
 
-export async function addProduct( formData: FormData) {
-  const {title, price, description, image, category} = AddProduct.parse({
+export async function addProduct(prevState: State, formData: FormData) {
+  const validatedFields = AddProduct.safeParse({
     title: formData.get('title'),
     price: formData.get('price'),
     description: formData.get('description'),
@@ -47,7 +59,14 @@ export async function addProduct( formData: FormData) {
     
     });
     
-  
+    if (!validatedFields.success) {
+      return {
+        errors: validatedFields.error.flatten().fieldErrors,
+        message: 'Missing Fields. Failed to Add Product.',
+      };
+    }
+
+    const {title, price, description, image, category} = validatedFields.data;
  try {
   await sql`
    INSERT INTO products (title, price, description, image, category)

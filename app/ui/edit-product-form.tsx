@@ -7,7 +7,7 @@ import Link from 'next/link';
   DocumentTextIcon,
   UserCircleIcon,
 } from '@heroicons/react/24/outline'; 
-import { Button } from '@/app/button';
+import { Button } from '@/app/_components/button';
 import { editProduct } from '@/app/lib/actions';
 import { Product, ProductField } from '../lib/definitions';
 import { fetchProductsNoFilter } from '../lib/data';
