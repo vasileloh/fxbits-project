@@ -14,6 +14,7 @@ import { useFormState } from 'react-dom';
 export default function AddForm() {
   const initialState = { message: null, errors: {} };
   const [state, dispatch] = useFormState(addProduct, initialState);
+  console.log(state.errors?.title);
   return (
     <form action={dispatch}>
       <div className="rounded-md bg-gray-500 p-4 md:p-6">

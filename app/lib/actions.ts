@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { Url } from 'next/dist/shared/lib/router/router';
 
 
 
@@ -17,7 +18,7 @@ const FormSchema = z.object({
     id: z.string(),
     title: z.string({
       invalid_type_error: 'Please enter a product title.'
-    }),
+    }).min(1),
     price: z.coerce
     .number()
     .gt(0, { message: 'Please enter an amount greater than 0.'}),
@@ -26,7 +27,7 @@ const FormSchema = z.object({
     }),
     image: z.string({
       invalid_type_error: 'Please insert a product image URL'
-    }),
+    }).url(),
     category: z.string({
       invalid_type_error: 'Please insert a product category'
     })
@@ -38,7 +39,7 @@ export type State = {
     title?: string[];
     price?: string[];
     description?: string[];
-    image?: string[];
+    image?: Url[];
     category?: string[];
   };
   message?: string | null;
