@@ -48,7 +48,7 @@ const AddProduct = FormSchema.omit({id: true})
 
 
 
-export async function addProduct(prevState: State, formData: FormData) {
+export async function addProduct(formData: FormData) {
       const validatedFields = AddProduct.safeParse({
         title: formData.get('title'),
         price: formData.get('price'),

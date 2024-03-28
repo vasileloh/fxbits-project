@@ -13,10 +13,10 @@ import { useFormState } from 'react-dom';
 
 export default function AddForm() {
   const initialState = { errors: {}, message: null };
-  const [state, dispatch] = useFormState(addProduct, initialState);
-  console.log(state.errors?.title);
+ // const [state, dispatch] = useFormState(addProduct, initialState);
+  //console.log(state.errors?.title);
   return (
-    <form action={dispatch}>
+    <form action={addProduct}>
       <div className="rounded-md bg-gray-500 p-4 md:p-6">
         {/* Title*/}
         <div className="mb-4">
@@ -39,12 +39,12 @@ export default function AddForm() {
            
           </div>
           <div id="title-error" aria-live="polite" aria-atomic="true">
-            {state.errors?.title && 
+            {/* state.errors?.title && 
             state.errors.title.map((error: string) => (
               <p className="mt-2 text-sm text-red-500" key="error">
                 {error}
               </p>
-            ))}
+            )) */}
           </div>
         </div>
         {/* Category*/}
@@ -66,12 +66,12 @@ export default function AddForm() {
               {<CpuChipIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />}
             </div>
             <div id="category-error" aria-live="polite" aria-atomic="true">
-            {state.errors?.category && 
+            {/*state.errors?.category && 
             state.errors.category.map((error: string) => (
               <p className="mt-2 text-sm text-red-500" key="error">
                 {error}
               </p>
-            ))}
+            )) */}
           </div>
           </div>
         </div>
@@ -97,12 +97,12 @@ export default function AddForm() {
               {<CurrencyEuroIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />}
             </div>
             <div id="price-error" aria-live="polite" aria-atomic="true">
-            {state.errors?.price && 
+            {/*state.errors?.price && 
             state.errors.price.map((error: string) => (
               <p className="mt-2 text-sm text-red-500" key="error">
                 {error}
               </p>
-            ))}
+            ))*/}
           </div>
           </div>
         </div>
@@ -130,12 +130,12 @@ export default function AddForm() {
            { <DocumentTextIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" /> }
           </div>
           <div id="description-error" aria-live="polite" aria-atomic="true">
-            {state.errors?.description && 
+            {/*state.errors?.description && 
             state.errors.description.map((error: string) => (
               <p className="mt-2 text-sm text-red-500" key="error">
                 {error}
               </p>
-            ))}
+            ))*/}
           </div>
         </div>
 
@@ -161,12 +161,12 @@ export default function AddForm() {
            { <LinkIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" /> }
           </div>
           <div id="image-error" aria-live="polite" aria-atomic="true">
-            {state.errors?.image && 
+            {/*state.errors?.image && 
             state.errors.image.map((error: string) => (
               <p className="mt-2 text-sm text-red-500" key="error">
                 {error}
               </p>
-            ))}
+            ))*/}
           </div>
         </div>
         
