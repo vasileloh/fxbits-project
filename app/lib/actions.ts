@@ -109,3 +109,16 @@ export async function editProduct(id: string, formData: FormData) {
   revalidatePath('/#');
   redirect('/#');
 };
+
+export async function DeleteProductWithId(id: string) {
+  try {
+    await sql`DELETE FROM products WHERE id = ${id}`;
+    revalidatePath('admin/products');
+    return { message: 'Deleted Product.'};
+  } catch (error) {
+    return {
+      messagwe: 'Database Error: Failed to Delete Product.'
+    };
+  }
+  }
+  

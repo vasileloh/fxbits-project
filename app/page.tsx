@@ -39,8 +39,7 @@ export default async function Home({
           <ul className='flex justify-center gap-32 '>
               <DropDown />
               <PriceSort />
-              <AddProduct />
-              <EditProduct />
+             
             </ul>
             
           <div className='flex justify-center'>

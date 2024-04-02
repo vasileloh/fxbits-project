@@ -1,11 +1,7 @@
+import EditForm from '@/app/ui/edit-product-form';
+import { fetchProductById, fetchProductsNoFilter } from '@/app/lib/data';
+import SelectProduct from '@/app/ui/select-product';
 
-import { Component, Suspense } from 'react';
-import EditForm from '../ui/edit-product-form';
-import { Product } from '../lib/definitions';
-import { fetchProductById, fetchProducts, fetchProductsNoFilter } from '@/app/lib/data';
-import { Select } from '@material-tailwind/react';
-import SelectProduct from '../ui/select-product';
-import SelectedProduct from '../ui/SelectedProduct';
 
 
 export default async function Page({
