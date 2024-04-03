@@ -35,7 +35,8 @@ export async function fetchProducts(
     LIMIT ${itemsPerPage} OFFSET ${offset}`;
 
     const products = data.rows.map((product) => ({
-      ...product
+      ...product,
+      price: product.price / 100
     }));
     return products;
   } catch (error) {

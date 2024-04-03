@@ -22,14 +22,29 @@ export default function Header() {
                             <span className=" w-20 text-3xl font-[150] text-black" >tech SHOP</span>
                         </a>
                     </div>
-                  {/* <div className="w-[200px]">
-                   <div className="transition ease-in-out delay-300 hover:-ml-10 text-black bg-red-400">adsasd</div>
-    </div> */}
+                 
          <div className="flex justify-end my-3">
             <Search placeholder="Search Products"/>
             </div>
                
-        </div>
+    </div> 
+
+    
+        /*<div className="z-50 fixed top-0 bg-white flex w-full flex-row px-3 py-4 md:px-2">
+            <div className="flex grow flex-col justify-between space-x-2">
+                <ShoppingCartIcon width={40} height={40} color="black" />
+            </div>
+            <div className="flex grow flex-row justify-center align-item space-x-2">
+                         <a href="/# ">
+                            <span className=" w-20 text-3xl font-[150] text-black" >tech SHOP</span>
+                        </a>
+            </div>
+            <div className="flex grow flex-row justify-end  space-x-2">
+                <Search placeholder="Search Producs" />
+            </div>
+        </div> */
+    
+    
     )
 }
 

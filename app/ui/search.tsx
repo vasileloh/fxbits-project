@@ -42,11 +42,11 @@ export default function Search({ placeholder }: { placeholder: string }) {
       handleSearch(e.target.value);
       } }
     defaultValue={searchParams.get('query')?.toString()} //crossOrigin={undefined}
-    className="absolute right-0 h-10 bg-transparent w-[40px] border-[.5px] border-gray-400 rounded-md transition-all  duration-300 focus:w-[200px] "
+    className="h-10 bg-transparent w-[80px] border-[.5px] border-gray-400 rounded-md transition-all  duration-300 focus:w-[200px] "
     //icon={<MagnifyingGlassIcon/>}
     
     /> 
-    <MagnifyingGlassIcon height={40} width={40} color='gray' />
+    <MagnifyingGlassIcon height={40} width={40} color='gray' className="pointer-events-none absolute right-2" />
     </div> 
   
     </>
