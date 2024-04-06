@@ -18,9 +18,9 @@ export default async function Dashboard({searchParams}: {
 
 
     return (
-        <>
+        <div className="">
         <ProductTable  displayed={displayed} sortType={sortType} query={query} currentPage={currentPage} /> 
-            </>    
+            </div>    
     )
     
 }

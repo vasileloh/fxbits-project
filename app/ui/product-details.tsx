@@ -4,7 +4,7 @@ import ImageWithFallBack from '../_components/imageWithFallBack';
 import { Button } from '../_components/button';
 import Accordion, { AccordionBody, AccordionHeader } from '@material-tailwind/react/components/Accordion';
 import type { AccordionProps } from "@material-tailwind/react";
-import { DefaultAccordion } from './accordion';
+import { DefaultAccordion } from '../_components/accordion';
 
 
 export default async function ProductDetails({id}: {

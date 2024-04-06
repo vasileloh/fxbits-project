@@ -5,11 +5,7 @@ import {
   AccordionHeader,
   AccordionBody,
 } from "@material-tailwind/react";
-import type { AccordionProps } from "@material-tailwind/react";
-import type { AccordionHeaderProps } from "@material-tailwind/react";
-import type { AccordionBodyProps } from "@material-tailwind/react";
-import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
-import Search from "./search";
+
 
 
  
@@ -46,27 +42,10 @@ export function DefaultAccordion() {
   );
 }
 
-export function AccordionSearch() {
-  const [open, setOpen] = useState(1);
+
+
+
+
+
+    
   
-  const handleOpen = (value: any) => setOpen(open === value ? 0 : value)
-
-
-  return (
-    <>
-        <Accordion placeholder={''} open={open === 1}>
-            <AccordionHeader placeholder={''} onClick={() => handleOpen(1)}>
-                <MagnifyingGlassIcon />
-            </AccordionHeader>
-            <AccordionBody>
-                {/*<Search placeholder="Search products" /> */}
-            </AccordionBody>
-        </Accordion>
-
-
-
-
-
-    </>
-  )
-}

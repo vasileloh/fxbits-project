@@ -1,6 +1,8 @@
 
 import Search from "./search";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { signOut } from "@/auth";
+import { PowerIcon } from "@heroicons/react/20/solid";
 
 
 export default function Header() {
@@ -26,9 +28,19 @@ export default function Header() {
          <div className="flex justify-end my-3">
             <Search placeholder="Search Products"/>
             </div>
-               
-    </div> 
+            <form action={async () => {
+        'use server';
+        await signOut();
+    }}>
+        <button className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky100 gover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
+            <PowerIcon className="w-6" />
+            <div className="hidden md:block">Sign Out</div>
 
+        </button>
+    </form>
+    </div> 
+    
+   
     
         /*<div className="z-50 fixed top-0 bg-white flex w-full flex-row px-3 py-4 md:px-2">
             <div className="flex grow flex-col justify-between space-x-2">

@@ -42,7 +42,7 @@ export default async function ProductTable({ displayed,
                     </table>
                         </main>          */
                         <main>
-                             <div className="mt-6 flow-root">
+     <div className="mt-6 flow-root">
       <div className="inline-block min-w-full align-middle">
         <div className="rounded-lg bg-gray-50 text-black p-2 md:pt-0">
           <div className="md:hidden">
@@ -75,7 +75,7 @@ export default async function ProductTable({ displayed,
               </div>
             ))}
           </div>
-           <table className="hidden min-w-full text-black md:table">
+           <table className=" w-[900px] text-black">
              <thead className="rounded-lg text-left text-sm font-normal" >
                     <tr>
                         
@@ -129,7 +129,7 @@ export default async function ProductTable({ displayed,
           </div>
           </div>
           </div>
-                        </main>
+                 </main>
 
 
                         
