@@ -43,7 +43,7 @@ export default async function ProductTable({ displayed,
                         </main>          */
                         <main>
      <div className="mt-6 flow-root">
-      <div className="inline-block min-w-full align-middle">
+      <div className="inline-block  align-middle">
         <div className="rounded-lg bg-gray-50 text-black p-2 md:pt-0">
           <div className="md:hidden">
             {products?.map((invoice) => (
@@ -75,7 +75,7 @@ export default async function ProductTable({ displayed,
               </div>
             ))}
           </div>
-           <table className=" w-[900px] text-black">
+           <table className=" text-black">
              <thead className="rounded-lg text-left text-sm font-normal" >
                     <tr>
                         
@@ -117,7 +117,7 @@ export default async function ProductTable({ displayed,
                         </td>
                         <td className="whitespace-nowrap py-3 pl-6 pr-3">
                             <AddProduct />
-                            <EditProduct />
+                            <EditProduct id={product.id} />
                             <DeleteProduct id={product.id} />
                         </td>
                         

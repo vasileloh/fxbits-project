@@ -18,7 +18,7 @@ export default function Header() {
                       <div className="flex my-3 w-[200px]">
                         <ShoppingCartIcon width={40} height={40} color="black" />
                     </div>
-                    
+                  
                     <div className="flex justify-center my-3">
                         <a href="/# ">
                             <span className=" w-20 text-3xl font-[150] text-black" >tech SHOP</span>
@@ -28,16 +28,7 @@ export default function Header() {
          <div className="flex justify-end my-3">
             <Search placeholder="Search Products"/>
             </div>
-            <form action={async () => {
-        'use server';
-        await signOut();
-    }}>
-        <button className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky100 gover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
-            <PowerIcon className="w-6" />
-            <div className="hidden md:block">Sign Out</div>
-
-        </button>
-    </form>
+         
     </div> 
     
    

@@ -27,7 +27,7 @@ export async function fetchProducts(
   unstable_noStore();
   try {
     const data = await sql<Product>`
-    SELECT products.id, products.title, products.price, products.description, products.image
+    SELECT products.id, products.title, products.category, products.price, products.description, products.image
     FROM products
     WHERE 
       products.title ILIKE ${`%${query}%`}
