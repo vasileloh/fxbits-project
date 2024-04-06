@@ -5,7 +5,7 @@ import { sql } from '@vercel/postgres';
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { Url } from 'next/dist/shared/lib/router/router';
-import { signIn } from '@/auth';
+import { signIn } from '@/auth'
 import { AuthError } from 'next-auth';
 
 
@@ -124,21 +124,21 @@ export async function DeleteProductWithId(id: string) {
   }
   }
   
-export async function authenticate(
-  prevState: string | undefined,
-  formData: FormData,
-) {
-  try {
-    await signIn('credentials', formData);
-  } catch (error) {
-    if (error instanceof AuthError) {
-      switch (error.type) {
-        case 'CredentialsSignin':
-          return 'Invalid Credentials.';
-        default: 
-          return 'Something went wrong.';
+  export async function authenticate(
+    prevState: string | undefined,
+    formData: FormData,
+  ) {
+    try {
+      await signIn('credentials', formData);
+    } catch (error) {
+      if (error instanceof AuthError) {
+        switch (error.type) {
+          case 'CredentialsSignin':
+            return 'Invalid credentials.';
+          default:
+            return 'Something went wrong.';
+        }
       }
+      throw error;
     }
-    throw error;
   }
-}
