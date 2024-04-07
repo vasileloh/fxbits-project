@@ -1,9 +1,11 @@
 import { fetchProductPages } from "@/app/lib/data";
+import { AddProduct } from "@/app/ui/buttons";
 import ProductTable from "@/app/ui/ProductTable";
+import Search from "@/app/ui/search";
 import { signOut } from "@/auth";
 import PowerIcon from "@heroicons/react/20/solid/PowerIcon";
 
-export default async function Dashboard({
+export default async function Page({
   searchParams,
 }: {
   searchParams: {
@@ -17,7 +19,7 @@ export default async function Dashboard({
   const sortType = searchParams?.sortType || "ASC";
   const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
-  const totalPages = await fetchProductPages(query, displayed);
+  //const totalPages = await fetchProductPages(query, displayed);
 
   return (
     <div className="mt-7">
@@ -32,6 +34,7 @@ export default async function Dashboard({
           <div className="hidden md:block">Sign Out</div>
         </button>
       </form>
+      <AddProduct />
       <div className="flex justify-center">
         <ProductTable
           displayed={100}
