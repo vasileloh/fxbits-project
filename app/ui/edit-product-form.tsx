@@ -1,30 +1,23 @@
-'use client'
-import Link from 'next/link';
- import {
+"use client";
+import Link from "next/link";
+import {
   CurrencyEuroIcon,
   LinkIcon,
   CpuChipIcon,
   DocumentTextIcon,
   UserCircleIcon,
-} from '@heroicons/react/24/outline'; 
-import { Button } from '@/app/_components/button';
-import { editProduct } from '@/app/lib/actions';
-import { Product, ProductField } from '../lib/definitions';
-import { fetchProductsNoFilter } from '../lib/data';
+} from "@heroicons/react/24/outline";
+import { Button } from "@/app/_components/button";
+import { editProduct } from "@/app/lib/actions";
+import { Product, ProductField } from "../lib/definitions";
+import { fetchProductsNoFilter } from "../lib/data";
 
+export default function EditForm({ product }: { product: Product }) {
+  const editProductWithId = editProduct.bind(null, product.id);
 
-export default function EditForm({
-    product,
-    
-}: {product: Product
-    }) {
-
-  const editProductWithId  = editProduct.bind(null, product.id)
-  
   return (
     <form action={editProductWithId}>
       <div className="rounded-md bg-gray-500 p-4 md:p-6 text-black">
-        
         {/* Title*/}
         <div className="mb-4">
           <label htmlFor="title" className="mb-2 block text-sm font-medium">
@@ -39,11 +32,11 @@ export default function EditForm({
                 placeholder="Enter title"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 text-black placeholder:text-gray-500"
                 defaultValue={product.title}
-                
               />
-              {<CpuChipIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />}
+              {
+                <CpuChipIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+              }
             </div>
-           
           </div>
         </div>
         {/* Category*/}
@@ -60,14 +53,13 @@ export default function EditForm({
                 placeholder="Enter category"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 text-black placeholder:text-gray-500"
                 defaultValue={product.category}
-                
               />
-              {<CpuChipIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />}
+              {
+                <CpuChipIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+              }
             </div>
-           
           </div>
         </div>
-
 
         {/* Price */}
         <div className="mb-4">
@@ -84,37 +76,37 @@ export default function EditForm({
                 placeholder="Enter price"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 text-black placeholder:text-gray-500"
                 defaultValue={product.price}
-                
               />
-              {<CurrencyEuroIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />}
+              {
+                <CurrencyEuroIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+              }
             </div>
-            
           </div>
         </div>
 
         {/* Description */}
-        
+
         <div className="mb-4">
-          <label htmlFor="description" className="mb-2 block text-sm font-medium">
+          <label
+            htmlFor="description"
+            className="mb-2 block text-sm font-medium"
+          >
             Enter product description
           </label>
           <div className="relative">
-          <input
-                id="description"
-                name="description"
-                type="string"
-                placeholder="Enter product description"
-                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 text-black placeholder:text-gray-500"
-                defaultValue={product.description}
-                
-              />
-              
-              
-              
-            
-           { <DocumentTextIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" /> }
+            <input
+              id="description"
+              name="description"
+              type="string"
+              placeholder="Enter product description"
+              className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 text-black placeholder:text-gray-500"
+              defaultValue={product.description}
+            />
+
+            {
+              <DocumentTextIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
+            }
           </div>
-         
         </div>
 
         {/* Image */}
@@ -123,27 +115,22 @@ export default function EditForm({
             Insert image URL
           </label>
           <div className="relative">
-          <input
-                id="image"
-                name="image"
-                type="text"
-                placeholder="Enter URL"
-                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 text-black placeholder:text-gray-500"
-                defaultValue={product.image}
-                
-              />
-              
-              
-              
-            
-           { <LinkIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" /> }
+            <input
+              id="image"
+              name="image"
+              type="text"
+              placeholder="Enter URL"
+              className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 text-black placeholder:text-gray-500"
+              defaultValue={product.image}
+            />
+
+            {
+              <LinkIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
+            }
           </div>
-          
         </div>
-        
-        
       </div>
-      
+
       <div className="mt-6 flex justify-end gap-4">
         <Link
           href="/#"

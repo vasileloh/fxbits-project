@@ -1,11 +1,8 @@
+import { Product, ProductField } from "./definitions";
+import { sql } from "@vercel/postgres";
+import { unstable_noStore } from "next/cache";
 
-import {  Product, ProductField }  from './definitions'
-import { sql } from '@vercel/postgres';
-import { unstable_noStore } from 'next/cache';
-
-
-
- /* export  async function fetchProducts() {
+/* export  async function fetchProducts() {
     const ff_url = 'https://fakestoreapi.com/products';
    
 
@@ -20,10 +17,10 @@ export async function fetchProducts(
   displayed: number,
   query: string,
   currentPage: number,
-  ) {
-    const itemsPerPage = displayed;
-    const offset = (currentPage - 1) * itemsPerPage;
-    
+) {
+  const itemsPerPage = displayed;
+  const offset = (currentPage - 1) * itemsPerPage;
+
   unstable_noStore();
   try {
     const data = await sql<Product>`
@@ -36,22 +33,18 @@ export async function fetchProducts(
 
     const products = data.rows.map((product) => ({
       ...product,
-      price: product.price / 100
+      price: product.price / 100,
     }));
     return products;
   } catch (error) {
     console.error("Database error:", error);
     throw new Error("Failed to fetch products.");
   }
-
-};
-
-
+}
 
 export async function fetchProductById(id: string) {
   unstable_noStore();
 
-  
   try {
     const data = await sql<Product>`
     SELECT products.id, products.category, products.title, products.price, products.description, products.image
@@ -65,14 +58,14 @@ export async function fetchProductById(id: string) {
     }));
     return product[0];
   } catch (error) {
-    console.error('Database Error:', error);
-    throw new Error ('Failed to fetch product.')
+    console.error("Database Error:", error);
+    throw new Error("Failed to fetch product.");
   }
 }
 
-export async function fetchProductPages (query: string, displayed: number) {
+export async function fetchProductPages(query: string, displayed: number) {
   const itemsPerPage = displayed;
-  unstable_noStore()
+  unstable_noStore();
   try {
     const count = await sql`
     SELECT COUNT(*)
@@ -85,17 +78,12 @@ export async function fetchProductPages (query: string, displayed: number) {
     const totalPages = Math.ceil(Number(count.rows[0].count) / itemsPerPage);
     return totalPages;
   } catch (error) {
-    console.error('Database Error:', error);
-    throw new Error('Failed to fetch total number of products.');
+    console.error("Database Error:", error);
+    throw new Error("Failed to fetch total number of products.");
   }
 }
 
-
-export async function fetchProductsNoFilter(
-  
-  ) {
-    
-    
+export async function fetchProductsNoFilter() {
   unstable_noStore();
   try {
     const data = await sql<ProductField>`
@@ -104,18 +92,12 @@ export async function fetchProductsNoFilter(
     ORDER BY title ASC`;
 
     const products = data.rows.map((product) => ({
-      ...product
-    }
-    ));
-    
+      ...product,
+    }));
+
     return products;
   } catch (error) {
     console.error("Database error:", error);
     throw new Error("Failed to fetch all products.");
   }
-
-};
-
- 
-
- 
+}
